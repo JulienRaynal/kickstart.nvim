@@ -981,3 +981,15 @@ end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+
+-- Gopass
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = '/private/**/gopass**',
+  callback = function()
+    vim.opt_local.swapfile = false
+    vim.opt_local.backup = false
+    vim.opt_local.undofile = false
+    vim.opt_local.shadafile = ''
+  end,
+})
