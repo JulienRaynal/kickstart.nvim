@@ -102,7 +102,7 @@ vim.g.have_nerd_font = false
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
@@ -546,12 +546,12 @@ require('lazy').setup({
           -- Find references for the word under your cursor.
           map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 
-          -- Jump to the implementation of the word under your cursor.
+          -- Jump to the implementamion of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
           map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
 
           -- Jump to the definition of the word under your cursor.
-          --  This is where a variable was first declared, or where a function is defined, etc.
+          --  This is where a var able was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
           map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
 
@@ -675,24 +675,13 @@ require('lazy').setup({
         -- gopls = {},
         -- pyright = {},
         -- pylsp = {},
-        --ty = {},
-        --ruff = {},
-        zuban = {},
+        ty = {},
+        ruff = {},
+        -- zuban = {}, -- Doesn't attach to the current file like ty as a fallback
         r_language_server = {},
-        rust_analyzer = {
-          ['rust_analyzer'] = {
-            settings = {
-              diagnostic = { enable = false },
-              checkOnSave = { enable = false },
-            },
-          },
-        },
-        bacon = {},
-        ['bacon-ls'] = {
-          init_options = {
-            updateOnSave = true,
-            updateOnSaveWaitMillis = 1000,
-          },
+        rust_analyzer = {},
+        tinymist = {
+          settings = { formatterMode = 'typstyle' },
         },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
